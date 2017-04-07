@@ -1,0 +1,13 @@
+{
+    "cv"    : "/path/to/your/cv.ext",
+    "sites" : {
+        "sitename" : {
+            "user" : "me@mysite.com",
+            "pass" : "Y0ur_p45sw0rd"
+        },
+        "anothersite" : {
+            "user" : "myusername",
+            "pass" : "Y0ur_p45sw0rd"
+        }
+    }
+}
