@@ -20,36 +20,58 @@ module.exports = function () {
         site   = sites[siteId]
     });
 
-    this.Given(/^I visit the "([^"]+)" page$/, function (slug) {
+    this.Given(/^I visit the "([^"]+)" page$/, function (pageKey) {
 
-        return this.driver.get(site.url + slug);
+        return this.driver.get(site.url + site[pageKey]);
     });
 
 
-    this.Then(/^the page should have a login form "([^"]+)"$/, function (selector) {
+    this.Then(/^the page should have a login form$/, function () {
 
-        this.waitFor(selector);
+        this.waitFor(site.loginForm);
 
-        return this.driver.findElement({ css: selector});
+        return this.driver.findElement({ css: site.loginForm});
     });
 
 
-    this.Then(/^I should be able to enter my "([^"]+)" in the field "([^"]+)"$/, function (data, selector) {
+    this.Then(/^I should be able to enter my "([^"]+)"$/, function (data) {
+
+        var selector;
+
+        switch (data) {
+            case 'username' :
+                selector = site.userInput;
+                break;
+            case 'password' :
+                selector = site.passInput;
+                break;
+        }
 
         return this.driver.findElement({ css: selector}).sendKeys(user[data]);
     });
 
-    this.Then(/^I should be able to submit the form with the button "([^"]+)"$/, function (selector) {
+    this.Then(/^I should be able to submit the "([^"]+)" form$/, function (formType) {
+
+        var selector;
+
+        switch (formType) {
+            case 'login' :
+                selector = site.loginButton;
+                break;
+            case 'cv' :
+                selector = site.saveCvButton;
+                break;
+        }
 
         return this.driver.findElement({ css: selector}).click();
     });
 
 
-    this.Then(/^I should be able to add my CV to the file input "([^"]+)"$/, function (selector) {
+    this.Then(/^I should be able to add my CV$/, function () {
 
-        this.waitFor(selector);
+        this.waitFor(site.fileInput);
 
-        return this.driver.findElement({ css: selector}).sendKeys(cv);
+        return this.driver.findElement({ css: site.fileInput}).sendKeys(cv);
     });
 
 };
