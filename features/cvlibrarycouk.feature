@@ -8,11 +8,3 @@ Feature: cv-library.co.uk CV upload
 
         Given I visit the "/candidate/modify-account" page
         Then I should be able to add my CV to the file input and submit the form
-
-    # Scenario: Update CV
-    #     Given I visit the "/candidate/modify-account" page
-    #     Then I should be able to add my CV to the file input
-
-    # Scenario: Show search page
-    #     Given I visit "/search" page
-    #     Then the page title should be "Zoopla Test: Search"

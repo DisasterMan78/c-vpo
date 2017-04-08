@@ -5,7 +5,7 @@ var expect  = require('chai').expect,
 
 module.exports = function () {
 
-    var siteId = 'cvlibrarycouk',
+    var siteId = 'totaljobscom',
         config = require('../../users.json'),
         cv     = config.cv,
         users  = config.sites[siteId],
@@ -15,16 +15,16 @@ module.exports = function () {
 
      // "([^"]*)" is lazy Regex, * matches anything including no string
      // Use + (plus) instead of * (asterisk) to ensure there is one or more character
-    this.Given(/^I visit the "([^"]+)" page$/, function (slug) {
+    this.Given(/^I visit the "([^"]+)" page on totaljobs$/, function (slug) {
 
         return this.driver.get(sites.url + slug);
 
     });
 
 
-    this.Then(/^the page should have a login form$/, function () {
+    this.Then(/^the page should have the totaljobs login form$/, function () {
 
-        var selector = 'form#login';
+        var selector = 'form[action="/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx"]';
 
         this.waitFor(selector);
 
@@ -32,16 +32,16 @@ module.exports = function () {
     });
 
 
-    this.Then(/^I should be able to enter my user details$/, function () {
+    this.Then(/^I should be able to enter my totaljobs user details$/, function () {
 
-        var selector = 'input[name="email"]',
+        var selector = 'input[name="Form.Email"]',
             selenium = this;
 
         this.waitFor(selector);
 
         return this.driver.findElement({ css: selector}).sendKeys(users.user).then(function () {
 
-            var selector = 'input[name="password"]';
+            var selector = 'input[name="Form.Password"]';
 
             selenium.waitFor(selector);
 
@@ -50,9 +50,9 @@ module.exports = function () {
     });
 
 
-    this.Then(/^I should be able to submit the login form$/, function () {
+    this.Then(/^I should be able to submit the totaljobs login form$/, function () {
 
-        var selector = 'input[type="submit"]';
+        var selector = 'form[action="/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx"] input[type="submit"]';
 
         this.waitFor(selector);
 
@@ -61,20 +61,25 @@ module.exports = function () {
     });
 
 
-    this.Then(/^I should be able to add my CV to the file input and submit the form$/, function () {
+    this.Then(/^I should be able to add my CV to the totaljobs file input and submit the form$/, function () {
 
-        var selector = 'input#cv_file',
+        var selector = 'input#candidateProfileDetails_cvUpload_filCVUploadFile',
             selenium = this;
 
         this.waitFor(selector);
 
         return this.driver.findElement({ css: selector}).sendKeys(cv).then(function () {
 
-            var selector = 'form#modify_form input.save-btn';
+            var selector = 'input#btnSave';
 
             selenium.waitFor(selector);
 
-            return selenium .driver.findElement({ css: selector}).click();
+            return selenium.driver.findElement({ css: selector}).click().then(function() {
+
+                var selector = 'div.account-page';
+
+                return selenium.waitFor(selector);
+            });
         });
     });
 

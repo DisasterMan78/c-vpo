@@ -2,5 +2,9 @@
     "cvlibrarycouk" : {
         "url"      : "https://www.cv-library.co.uk",
         "lastpass" : false
+    },
+    "totaljobscom" : {
+        "url"      : "https://www.totaljobs.com",
+        "lastpass" : false
     }
 }
