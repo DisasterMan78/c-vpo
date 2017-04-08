@@ -1,10 +1,26 @@
 {
     "cvlibrary.co.uk" : {
-        "url"      : "https://www.cv-library.co.uk",
-        "lastpass" : false
+        "url"          : "https://www.cv-library.co.uk",
+        "lastpass"     : false,
+        "login"        : "/cgi-bin/candlogin.cgi",
+        "loginForm"    : "form#login",
+        "userInput"    : "input[name='email']",
+        "passInput"    : "input[name='password']",
+        "loginButton"  : "input[type='submit']",
+        "cv"           : "/candidate/modify-account",
+        "fileInput"    : "input#cv_file",
+        "saveCvButton" : "form#modify_form input.save-btn"
     },
     "totaljobs.com" : {
-        "url"      : "https://www.totaljobs.com",
-        "lastpass" : false
+        "url"          : "https://www.totaljobs.com",
+        "lastpass"     : false,
+        "login"        : "/account/signin?ReturnUrl=%2fAuthenticated%2fprofile.aspx#cv",
+        "loginForm"    : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx']",
+        "userInput"    : "input[name='Form.Email']",
+        "passInput"    : "input[name='Form.Password']",
+        "loginButton"  : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
+        "cv"           : "/Authenticated/profile.aspx",
+        "fileInput"    : "input#candidateProfileDetails_cvUpload_filCVUploadFile",
+        "saveCvButton" : "input#btnSave"
     }
 }
