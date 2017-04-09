@@ -22,5 +22,22 @@
         "cv"           : "/Authenticated/profile.aspx",
         "fileInput"    : "input#candidateProfileDetails_cvUpload_filCVUploadFile",
         "saveCvButton" : "input#btnSave"
+    },
+    "technojobs.co.uk" : {
+        "url"                : "https://www.technojobs.co.uk/",
+        "lastpass"           : false,
+        "login"              : "/login.phtml",
+        "loginForm"          : "form[action='/login.phtml']",
+        "userInput"          : "input#username",
+        "passInput"          : "input#password",
+        "loginButton"        : "input#login-button",
+        "cv"                 : "/candidate/docupload.phtml?type=CV",
+        "fileInput"          : "input#CVUpload",
+        "saveCvButton"       : ".actionbuttons input[type='image']",
+        "manage-cvs"         : "/candidate/managedocs.phtml",
+        "moreOptionsButton"  : ".docsmoreopt:not(.docsmoreoptdef)",
+        "removeCvLink"       : ".cv-butt-remove",
+        "removeCvButton"     : "a[href^='/candidate/docremove.phtml?id=']",
+        "cvShowMoreButton"   : ".jobbox.cv-letters"
     }
 }
