@@ -1,15 +1,10 @@
 // features/stepdefinitions/routing.steps.js
 
-var webdriver = require('selenium-webdriver'),
-    By        = webdriver.By,
-    until     = webdriver.until,
-    expect    = require('chai').expect,
-    baseUrl   = 'http://localhost:8080';
+var expect  = require('chai').expect,
+    baseUrl = 'http://localhost:8080';
 
 module.exports = function () {
     'use strict';
-
-    this.World = require('../support/world.js').World;
 
     var config = require('../../users.json'),
         cv     = config.cv,
@@ -17,6 +12,8 @@ module.exports = function () {
         siteId,
         site,
         user;
+
+    this.World = require('../support/world.js').World;
 
     this.Given(/^I am using the data for "([^"]+)"$/, function (data) {
         siteId = data;
