@@ -1,14 +1,12 @@
 // features/stepdefinitions/routing.steps.js
 
-var expect  = require('chai').expect,
-    baseUrl = 'http://localhost:8080';
-
 module.exports = function () {
     'use strict';
 
-    var config = require('../../users.json'),
-        cv     = config.cv,
-        sites  = require('../../sites.json'),
+    var expect       = require('chai').expect,
+        config       = require('../../users.json'),
+        cv           = config.cv,
+        sites        = require('../../sites.json'),
         siteId,
         site,
         user;
@@ -86,6 +84,9 @@ module.exports = function () {
             driver = this.driver;
 
         switch (buttonType) {
+            case 'edit cv' :
+                selector = site.editCvButton;
+                break;
             case 'remove' :
                 selector = site.removeCvLink;
                 break;
@@ -111,11 +112,23 @@ module.exports = function () {
         var selector;
 
         switch (page) {
+            case 'login success' :
+                selector = site.loginSuccessMsg;
+                break;
             case 'remove document' :
                 selector = site.removeCvButton;
                 break;
             case 'my cvs & letters' :
                 selector = site.cvShowMoreButton;
+                break;
+            case 'login success' :
+                selector = site.loginSuccessPage;
+                break;
+            case 'upload success' :
+                selector = site.uploadSuccessPage;
+                break;
+            case 'nonexistent' :
+                selector = "#nonexistent";
                 break;
         }
 
@@ -146,6 +159,27 @@ module.exports = function () {
         var milliseconds = seconds * 1000;
 
         return this.driver.delay(milliseconds);
+    });
+
+
+
+
+    this.Then(/^the page should say "([^"]+)"$/, function (text) {
+        var selector,
+            successMsg;
+
+        switch (text) {
+            case 'success' :
+                selector  = site.uploadSuccessPage;
+                successMsg = site.successMsg;
+                break;
+        }
+
+        this.waitFor(selector);
+
+        return this.driver.findElement({ css: selector}).getText().then(function (message) {
+            expect(message).to.equal(successMsg);
+        });
     });
 
 };

@@ -3,13 +3,13 @@
         "url"          : "https://www.cv-library.co.uk",
         "lastpass"     : false,
         "login"        : "/cgi-bin/candlogin.cgi",
-        "loginForm"    : "form#login",
+        "loginForm"    : "#login",
         "userInput"    : "input[name='email']",
         "passInput"    : "input[name='password']",
         "loginButton"  : "input[type='submit']",
         "cv"           : "/candidate/modify-account",
-        "fileInput"    : "input#cv_file",
-        "saveCvButton" : "form#modify_form input.save-btn"
+        "fileInput"    : "#cv_file",
+        "saveCvButton" : "#modify_form .save-btn"
     },
     "totaljobs.com" : {
         "url"          : "https://www.totaljobs.com",
@@ -20,24 +20,40 @@
         "passInput"    : "input[name='Form.Password']",
         "loginButton"  : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
         "cv"           : "/Authenticated/profile.aspx",
-        "fileInput"    : "input#candidateProfileDetails_cvUpload_filCVUploadFile",
-        "saveCvButton" : "input#btnSave"
+        "fileInput"    : "#candidateProfileDetails_cvUpload_filCVUploadFile",
+        "saveCvButton" : "#btnSave"
     },
     "technojobs.co.uk" : {
         "url"                : "https://www.technojobs.co.uk/",
         "lastpass"           : false,
         "login"              : "/login.phtml",
         "loginForm"          : "form[action='/login.phtml']",
-        "userInput"          : "input#username",
-        "passInput"          : "input#password",
-        "loginButton"        : "input#login-button",
+        "userInput"          : "#username",
+        "passInput"          : "#password",
+        "loginButton"        : "#login-button",
         "cv"                 : "/candidate/docupload.phtml?type=CV",
-        "fileInput"          : "input#CVUpload",
+        "fileInput"          : "#CVUpload",
         "saveCvButton"       : ".actionbuttons input[type='image']",
         "manage-cvs"         : "/candidate/managedocs.phtml",
         "moreOptionsButton"  : ".docsmoreopt:not(.docsmoreoptdef)",
         "removeCvLink"       : ".cv-butt-remove",
         "removeCvButton"     : "a[href^='/candidate/docremove.phtml?id=']",
         "cvShowMoreButton"   : ".jobbox.cv-letters"
+    },
+    "jobsite.co.uk" : {
+        "url"               : "https://www.jobsite.co.uk",
+        "lastpass"          : false,
+        "login"             : "/cgi-bin/login_applicant.cgi?src=qlSignIn",
+        "loginForm"         : "#login_form",
+        "userInput"         : "#email",
+        "passInput"         : "#password",
+        "loginButton"       : "#login_form input[type='submit']",
+        "loginSuccessMsg"   : ".welcome-strip h1 > span",
+        "editCvButton"      : ".card_edit_cv",
+        "cv"                : "/cgi-bin/myjobsite_cv_management.cgi",
+        "fileInput"         : "#cvfile",
+        "saveCvButton"      : "#cv_edit_form input[type='submit']",
+        "uploadSuccessPage" : ".message-panel.msg-success",
+        "successMsg"        : "Thank you for uploading your CV."
     }
 }
