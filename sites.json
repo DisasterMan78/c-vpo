@@ -55,5 +55,17 @@
         "saveCvButton"      : "#cv_edit_form input[type='submit']",
         "uploadSuccessPage" : ".message-panel.msg-success",
         "successMsg"        : "Thank you for uploading your CV."
+    },
+    "cwjobs.co.uk" : {
+        "url"          : "https://www.cwjobs.co.uk",
+        "lastpass"     : false,
+        "login"        : "/account/signin?ReturnUrl=%2fAuthenticated%2fprofile.aspx#cv",
+        "loginForm"    : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx']",
+        "userInput"    : "input[name='Form.Email']",
+        "passInput"    : "input[name='Form.Password']",
+        "loginButton"  : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
+        "cv"           : "/Authenticated/profile.aspx",
+        "fileInput"    : "#candidateProfileDetails_cvUpload_filCVUploadFile",
+        "saveCvButton" : "#btnSave"
     }
 }
