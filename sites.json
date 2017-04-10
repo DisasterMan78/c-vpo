@@ -34,7 +34,7 @@
         "cv"                 : "/candidate/docupload.phtml?type=CV",
         "fileInput"          : "#CVUpload",
         "saveCvButton"       : ".actionbuttons input[type='image']",
-        "manage-cvs"         : "/candidate/managedocs.phtml",
+        "manage cvs"         : "/candidate/managedocs.phtml",
         "moreOptionsButton"  : ".docsmoreopt:not(.docsmoreoptdef)",
         "removeCvLink"       : ".cv-butt-remove",
         "removeCvButton"     : "a[href^='/candidate/docremove.phtml?id=']",
@@ -67,5 +67,22 @@
         "cv"           : "/Authenticated/profile.aspx",
         "fileInput"    : "#candidateProfileDetails_cvUpload_filCVUploadFile",
         "saveCvButton" : "#btnSave"
+    },
+    "monster.co.uk" : {
+        "url"                 : "https://www.monster.co.uk",
+        "lastpass"            : false,
+        "loginUrl"            : "https://login20.monster.co.uk/Login/SignIn",
+        "loginForm"           : "#SignInform",
+        "userInput"           : "#EmailAddress",
+        "passInput"           : "#Password",
+        "loginButton"         : "#btn-login",
+        "manage cvs"          : "/cv/Resume/ManageResumes",
+        "cvDate"              : ".resume-info",
+        "maxCvsElement"       : "#manageResumesContainer tfoot p",
+        "removeCVLink"        : "#manageResumesContainer .delete-link",
+        "confirmDeleteButton" : "#btn-modal-delete",
+        "cv"                  : "/cv/Resume/CreateResume",
+        "fileInput"           : "#fuUploadFromMyComputer",
+        "uploadSuccessPage"   : ".form-container-resume-settings-page"
     }
 }
