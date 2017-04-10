@@ -28,6 +28,11 @@ Will submit CV to sites in provided scripts. Tests will inform you of failures i
 
 `$ node_modules/.bin/cucumber-js`
 
+Sometimes a test will fail because the site isn't responding - to re-run a single test:
+
+`$ node_modules/.bin/cucumber-js features/jobsite.co.uk`
+
+
 Cucumber support files lifted from
 https://github.com/Matt-B/cucumber-js-selenium-webdriver-example
 
