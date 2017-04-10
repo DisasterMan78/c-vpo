@@ -12,7 +12,7 @@ Feature: technojobs.co.uk CV upload
         Then I should be able to add my CV
             And I should be able to submit the "cv" form
 
-        Given I visit the "manage-cvs" page
+        Given I visit the "manage cvs" page
             And I click the "more options" button
             Then I click the "remove" button
             And I wait for the "remove document" page to load

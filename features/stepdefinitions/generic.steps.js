@@ -3,10 +3,10 @@
 module.exports = function () {
     'use strict';
 
-    var expect       = require('chai').expect,
-        config       = require('../../users.json'),
-        cv           = config.cv,
-        sites        = require('../../sites.json'),
+    var expect = require('chai').expect,
+        config = require('../../users.json'),
+        cv     = config.cv,
+        sites  = require('../../sites.json'),
         siteId,
         site,
         user;
@@ -22,6 +22,19 @@ module.exports = function () {
     this.Given(/^I visit the "([^"]+)" page$/, function (pageKey) {
 
         return this.driver.get(site.url + site[pageKey]);
+    });
+
+    this.Given(/^I visit the "([^"]+)" url$/, function (url) {
+
+        var urlKey;
+
+        switch (url) {
+            case 'login' :
+                url = site.loginUrl;
+                break;
+        }
+
+        return this.driver.get(url);
     });
 
 
@@ -80,8 +93,7 @@ module.exports = function () {
     this.Then(/^I click the "([^"]+)" button$/, function (buttonType) {
 
         var selector,
-            element,
-            driver = this.driver;
+            element;
 
         switch (buttonType) {
             case 'edit cv' :
@@ -95,6 +107,9 @@ module.exports = function () {
                 break;
             case 'more options' :
                 selector = site.moreOptionsButton;
+                break;
+            case 'confirm delete' :
+                selector = site.confirmDeleteButton;
                 break;
         }
 
@@ -112,6 +127,9 @@ module.exports = function () {
         var selector;
 
         switch (page) {
+            case 'login' :
+                selector = site.loginForm;
+                break;
             case 'login success' :
                 selector = site.loginSuccessMsg;
                 break;

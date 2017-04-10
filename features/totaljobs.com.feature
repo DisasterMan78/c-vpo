@@ -8,6 +8,7 @@ Feature: totaljobs.com CV upload
             And I should be able to enter my "password"
             And I should be able to submit the "login" form
 
+    Scenario: Upload CV
         Given I visit the "cv" page
         Then I should be able to add my CV
             And I should be able to submit the "cv" form
