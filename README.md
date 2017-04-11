@@ -30,7 +30,7 @@ Will submit CV to sites in provided scripts. Tests will inform you of failures i
 
 Sometimes a test will fail because the site isn't responding - to re-run a single test:
 
-`$ node_modules/.bin/cucumber-js features/jobsite.co.uk`
+`$ node_modules/.bin/cucumber-js features/jobsite.co.uk.feature`
 
 
 Cucumber support files lifted from
