@@ -10,8 +10,8 @@ Feature: cwjobs.co.uk CV upload
 
     # Monster supports 5 CVs and tracks views for each file. I like to keep an eye
     # on this data, so will be checking the date of each and deleting the oldest
-    # jobiste is a bit picky - if the test isn't run as a single scenario
-    # it kicks you out complaining about cookies. That wasted a lot of time...
+    # monster is a bit picky - if the test isn't run as a single scenario
+    # it kicks you out.
     # Scenario: Delete oldest CV
         Given I visit the "manage cvs" page
         Then there should be a count of the CVs on Monster

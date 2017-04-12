@@ -1,6 +1,14 @@
 # C-VPO - The CV Post Office
 ## Automated Resumé Submission Engine
 
+**N.B. This project is intended as a productivity tool, not for abuse of systems. This is one reason for using slower tests that simulate user input.**
+
+*These scripts are presented as is and without warranty of any kind.**
+
+**By using these scripts you agree that the author(s) shall not be held liable for damages of any nature, and accept full responsibility for their usage. If you don't understand them, don't use them.**
+
+*Don't be scared - the scripts aren't considered dangerous or abusive. The worst that could likely happen is a job site provider could be mildly peeved and suspend your account.*
+
 ### Requirements
 
 Node.js
