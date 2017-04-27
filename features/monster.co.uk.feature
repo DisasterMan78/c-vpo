@@ -1,4 +1,4 @@
-Feature: cwjobs.co.uk CV upload
+Feature: monster.co.uk CV upload
 
     Scenario: Load site and login
         Given I am using the data for "monster.co.uk"
