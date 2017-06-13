@@ -40,6 +40,27 @@
         "removeCvButton"     : "a[href^='/candidate/docremove.phtml?id=']",
         "cvShowMoreButton"   : ".jobbox.cv-letters"
     },
+    "jobserve.com" : {
+        "url"                   : "https://www.jobserve.com",
+        "lastpass"              : false,
+        "login"                 : "/gb/en/Candidate/Login.aspx",
+        "loginForm"             : "form[action^='./Login.aspx']",
+        "allowCookies"          : ".CookieRHSLogin a",
+        "userInput"             : "#txbEmail",
+        "passInput"             : "#txbPassword",
+        "loginButton"           : "form[action^='./Login.aspx'] input[type='submit']",
+        "candidateHomeSelector" : "#tabCVs",
+        "tabCvs"                : "#tabCVs",
+        "cvTabContent"          : "#CVTab > *",
+        "actionsElement"        : "#CVScroll .fauxlink",
+        "removeCvButton"        : ".actionItem.del a",
+        "removeCVPage"          : "#divConfirm #ConfirmButton",
+        "confirmDeleteMsg"      : "Are you sure you would like to permanently delete your CV from JobServe?",
+        "confirmDeleteButton"   : "#ConfirmButton",
+        "uploadCvButton"        : "#CVTab a[href^='/gb/en/Candidate/CandidateQuickPostResume.aspx']",
+        "fileInput"             : "#CVFile",
+        "saveCvButton"          : "#btnUpload"
+    },
     "jobsite.co.uk" : {
         "url"               : "https://www.jobsite.co.uk",
         "lastpass"          : false,

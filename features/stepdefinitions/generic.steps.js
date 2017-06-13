@@ -13,16 +13,19 @@ module.exports = function () {
 
     this.World = require('../support/world.js').World;
 
+
     this.Given(/^I am using the data for "([^"]+)"$/, function (data) {
         siteId = data;
         user   = config.sites[siteId];
         site   = sites[siteId];
     });
 
+
     this.Given(/^I visit the "([^"]+)" page$/, function (pageKey) {
 
         return this.driver.get(site.url + site[pageKey]);
     });
+
 
     this.Given(/^I visit the "([^"]+)" url$/, function (url) {
 
@@ -64,6 +67,7 @@ module.exports = function () {
         return this.driver.findElement({ css: selector}).sendKeys(user[data]);
     });
 
+
     this.Then(/^I should be able to submit the "([^"]+)" form$/, function (formType) {
 
         var selector;
@@ -90,20 +94,32 @@ module.exports = function () {
         return this.driver.findElement({ css: site.fileInput}).sendKeys(cv);
     });
 
+
     this.Then(/^I click the "([^"]+)" button$/, function (buttonType) {
 
         var selector,
             element;
 
         switch (buttonType) {
+            case 'allow cookies' :
+                selector = site.allowCookies;
+                break;
+            case 'CVs tab' :
+                selector = site.tabCvs;
+                break;
             case 'edit cv' :
                 selector = site.editCvButton;
+            case 'upload cv' :
+                selector = site.uploadCvButton;
                 break;
             case 'remove' :
                 selector = site.removeCvLink;
                 break;
             case 'remove document' :
                 selector = site.removeCvButton;
+                break;
+            case 'confirm delete' :
+                selector = site.confirmDeleteButton;
                 break;
             case 'more options' :
                 selector = site.moreOptionsButton;
@@ -121,6 +137,7 @@ module.exports = function () {
         return this.driver.executeScript('arguments[0].click()', element);
     });
 
+
     this.Then(/^I wait for the "([^"]+)" page to load$/, function(page){
         // Note: We indentify a page has loaded by the presenece of a given selector unique to that page.
 
@@ -133,14 +150,25 @@ module.exports = function () {
             case 'login success' :
                 selector = site.loginSuccessMsg;
                 break;
+            case 'candidate home' :
+                selector = site.candidateHomeSelector;
+                break;
+            case 'CV tab content' :
+                selector = site.cvTabContent;
+                break;
             case 'remove document' :
                 selector = site.removeCvButton;
                 break;
+            case 'cv' :
+                selector = site.editCvButton;
+            case 'upload cv' :
+                selector = site.fileInput;
+                break;
+            case 'confirm delete' :
+                selector = site.removeCVPage;
+                break;
             case 'my cvs & letters' :
                 selector = site.cvShowMoreButton;
-                break;
-            case 'login success' :
-                selector = site.loginSuccessPage;
                 break;
             case 'upload success' :
                 selector = site.uploadSuccessPage;
@@ -154,6 +182,7 @@ module.exports = function () {
 
         return this.driver.findElement({ css: selector});
     });
+
 
     this.Then(/^there should only be one "([^"]+)" on the page$/, function(object){
 
@@ -172,6 +201,7 @@ module.exports = function () {
         });
     });
 
+
     this.Then(/^wait for "([^"]+)" seconds$/, function(seconds){
 
         var milliseconds = seconds * 1000;
@@ -180,23 +210,40 @@ module.exports = function () {
     });
 
 
-
-
     this.Then(/^the page should say "([^"]+)"$/, function (text) {
         var selector,
-            successMsg;
+            message;
 
         switch (text) {
+            case 'are you sure' :
+                selector = site.removeCVPage;
+                message  = site.confirmDeleteMsg;
+                break;
             case 'success' :
-                selector  = site.uploadSuccessPage;
-                successMsg = site.successMsg;
+                selector = site.uploadSuccessPage;
+                message  = site.successMsg;
                 break;
         }
 
         this.waitFor(selector);
 
         return this.driver.findElement({ css: selector}).getText().then(function (message) {
-            expect(message).to.equal(successMsg);
+            expect(message).to.equal(message);
+        });
+    });
+
+    this.Then(/^I hover on "([^"]+)"$/, function (selector){
+        var driver = this.driver,
+            selector;
+
+        switch (selector) {
+            case 'actions element' :
+                selector = site.actionsElement;
+                break;
+        }
+
+        return this.driver.findElement({ css: selector}).then(function(elem){
+            driver.actions().mouseMove(elem).perform();
         });
     });
 
