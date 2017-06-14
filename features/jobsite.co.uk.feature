@@ -9,7 +9,7 @@ Feature: jobsite.co.uk CV upload
             And I should be able to submit the "login" form
         Then I wait for the "login success" page to load
 
-    # jobiste is a bit pick - if the test isn't run as a single scenario
+    # jobiste is a bit picky - if the test isn't run as a single scenario
     # it kicks you out complaining about cookies. That wasted a lot of time...
     # Scenario: Upload CV
         Then I click the "edit cv" button
