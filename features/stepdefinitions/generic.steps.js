@@ -109,6 +109,7 @@ module.exports = function () {
                 break;
             case 'edit cv' :
                 selector = site.editCvButton;
+                break;
             case 'upload cv' :
                 selector = site.uploadCvButton;
                 break;
