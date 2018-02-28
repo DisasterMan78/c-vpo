@@ -18,6 +18,10 @@ NPM
 Install Chromedriver from http://chromedriver.storage.googleapis.com/index.html
 Be sure to add path to chromedriver file to your PATH variable
 
+> Be sure to keep Chromedriver up to date with your Chrome version
+> If you get this error it may be due to an out of date Chromedriver
+> `Error: ECONNREFUSED connect ECONNREFUSED 127.0.0.1:50472`
+
 Clone the repo, then from the project directory run
 
 `$ npm install`
