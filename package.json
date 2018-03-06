@@ -3,10 +3,13 @@
   "description": "Automated Resumé Submission Engine",
   "version": "0.0.1",
   "author": "David Benson <dmbenson1978@gmail.com>",
-  "license": "GNU GPLv3",
+  "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
     "url": "git://github.com/DisasterMan78/c-vpo.git"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/cucumber-js"
   },
   "devDependencies": {
     "chai": "^3.5.0",

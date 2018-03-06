@@ -38,11 +38,11 @@ As you will bee keeping these passwords in a plain text file, it is HIGHLY recom
 
 Will submit CV to sites in provided scripts. Tests will inform you of failures in the event of UI changes - screenshots will be dumped in /screenshots
 
-`$ node_modules/.bin/cucumber-js`
+`$ npm start`
 
 Sometimes a test will fail because the site isn't responding - to re-run a single test:
 
-`$ node_modules/.bin/cucumber-js features/jobsite.co.uk.feature`
+`$ npm start features/jobsite.co.uk.feature`
 
 
 Cucumber support files lifted from
