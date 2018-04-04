@@ -53,15 +53,15 @@ https://github.com/Matt-B/cucumber-js-selenium-webdriver-example
 Please fork this repo and submit pull requests.
 Each additional site should be in its own feature branch.
 
-### Supported sites
+### Currently Supported sites
 
-https://cv-library.co.uk
-https://cwjobs.co.uk
-https://jobserve.com
-https://jobsite.co.uk
-https://monster.co.uk
-https://technojobs.co.uk
-https://totaljobs.com
+* https://cv-library.co.uk
+* https://cwjobs.co.uk
+* https://jobserve.com
+* https://jobsite.co.uk
+* https://monster.co.uk
+* https://technojobs.co.uk
+* https://totaljobs.com
 
 ### Discussion
 
