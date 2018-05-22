@@ -2,12 +2,12 @@
     "cv"    : "/path/to/your/cv.ext",
     "sites" : {
         "sitename" : {
-            "user" : "me@mysite.com",
-            "pass" : "Y0ur_p45sw0rd"
+            "username" : "me@mysite.com",
+            "password" : "Y0ur_p45sw0rd"
         },
         "anothersite" : {
-            "user" : "myusername",
-            "pass" : "Y0ur_p45sw0rd"
+            "username" : "myusername",
+            "password" : "Y0ur_p45sw0rd"
         }
     }
 }
