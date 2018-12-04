@@ -61,22 +61,6 @@
         "fileInput"             : "#CVFile",
         "saveCvButton"          : "#btnUpload"
     },
-    "jobsite.co.uk" : {
-        "url"               : "https://www.jobsite.co.uk",
-        "lastpass"          : false,
-        "login"             : "/cgi-bin/login_applicant.cgi?src=qlSignIn",
-        "loginForm"         : "#login_form",
-        "userInput"         : "#email",
-        "passInput"         : "#password",
-        "loginButton"       : "#login_form input[type='submit']",
-        "loginSuccessMsg"   : ".welcome-strip h1 > span",
-        "editCvButton"      : ".card_edit_cv",
-        "cv"                : "/cgi-bin/myjobsite_cv_management.cgi",
-        "fileInput"         : "#cvfile",
-        "saveCvButton"      : "#cv_edit_form input[type='submit']",
-        "uploadSuccessPage" : ".message-panel.msg-success",
-        "successMsg"        : "Thank you for uploading your CV."
-    },
     "cwjobs.co.uk" : {
         "url"          : "https://www.cwjobs.co.uk",
         "lastpass"     : false,

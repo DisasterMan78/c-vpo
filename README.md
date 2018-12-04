@@ -58,7 +58,6 @@ Each additional site should be in its own feature branch.
 * https://cv-library.co.uk
 * https://cwjobs.co.uk
 * https://jobserve.com
-* https://jobsite.co.uk
 * https://monster.co.uk
 * https://technojobs.co.uk
 * https://totaljobs.com
