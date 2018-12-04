@@ -128,6 +128,9 @@ module.exports = function () {
             case 'confirm delete' :
                 selector = site.confirmDeleteButton;
                 break;
+            case 'make this cv searchable' :
+                selector = site.makeSearchable;
+                break;
         }
 
         var element = this.driver.findElement({ css: selector});
