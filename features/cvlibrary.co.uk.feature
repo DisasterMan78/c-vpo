@@ -9,5 +9,6 @@ Feature: cv-library.co.uk CV upload
             And I should be able to submit the "login" form
 
         Given I visit the "cv" page
+        Then I click the "cookiesButton" button if it is visible
         Then I should be able to add my CV
             And I should be able to submit the "cv" form

@@ -251,4 +251,17 @@ module.exports = function () {
         });
     });
 
+
+
+    this.Then(/^I click the "([^"]+)" button if it is visible$/, function (buttonSelector) {
+        var button = this.driver.findElement({ css: site[buttonSelector]});
+
+        // If the button isn't visible, skip step
+        if(button.length === 0) {
+            return true;
+        }
+
+        return button.click();
+    });
+
 };
