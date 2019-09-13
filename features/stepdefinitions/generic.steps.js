@@ -264,4 +264,44 @@ module.exports = function () {
         return button.click();
     });
 
+
+
+    this.Then(/^I click the "([^"]+)" button if it is visible and close any other tabs that open$/, function (buttonSelector) {
+        var driver = this.driver,
+            originalHandle = driver.getWindowHandle(),
+            button = this.driver.findElement({ css: site[buttonSelector]});
+
+        // If the button isn't visible, skip step
+        if(button.length === 0) {
+            return true;
+        }
+
+        button.click();
+
+        driver.getAllWindowHandles().then(function (allHandles) {
+
+            allHandles.forEach(function (handle) {
+                if (handle !== originalHandle) {
+                    driver.switchTo().window(handle);
+                    driver.close();
+                }
+            });
+
+            driver.switchTo().window(originalHandle);
+        });
+    });
+
+    this.Then(/^close the other tab that has opened$/, function() {
+        var driver = this.driver,
+            currentHandle = driver.getWindowHandle();
+
+        driver.getAllWindowHandles().then(function (allHandles) {
+
+            driver.switchTo().window(allHandles[1]);
+            driver.close();
+
+            return driver.switchTo().window(allHandles[0]);
+        });
+    });
+
 };
