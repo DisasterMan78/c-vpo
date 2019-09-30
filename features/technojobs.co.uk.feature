@@ -10,6 +10,7 @@ Feature: technojobs.co.uk CV upload
 
         Given I visit the "cv" page
         Then I should be able to add my CV
+            And I click the "add to index" button
             And I should be able to submit the "cv" form
 
         Given I visit the "manage cvs" page
