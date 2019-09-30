@@ -91,7 +91,9 @@ module.exports = function () {
 
         this.waitFor(site.fileInput);
 
-        return this.driver.findElement({ css: site.fileInput}).sendKeys(cv);
+        return this.driver
+            .findElement({ css: site.fileInput})
+            .sendKeys(cv);
     });
 
 
@@ -130,6 +132,18 @@ module.exports = function () {
                 break;
             case 'make this cv searchable' :
                 selector = site.makeSearchable;
+                break;
+            case 'upload' :
+                selector = site.uploadButton;
+                break;
+            case 'cookies' :
+                selector = site.cookiesButton;
+                break;
+            case 'device' :
+                selector = site.deviceButton;
+                break;
+            case 'add to index' :
+                selector = site.indexButton;
                 break;
         }
 
@@ -254,7 +268,7 @@ module.exports = function () {
 
 
     this.Then(/^I click the "([^"]+)" button if it is visible$/, function (buttonSelector) {
-        var button = this.driver.findElement({ css: site[buttonSelector]});
+        var button = this.driver.findElement({ css: site.buttonSelector});
 
         // If the button isn't visible, skip step
         if(button.length === 0) {

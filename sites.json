@@ -9,8 +9,11 @@
         "loginButton"   : "input[type='submit']",
         "cookiesButton" : ".cookie-notice__dismiss",
         "cv"            : "/candidate/modify-account",
+        "editCvButton"  : ".filepicker-dropdown__toggle",
+        "uploadButton"  : ".filepicker-dropdown__toggle",
+        "deviceButton"  : "#filepicker-device",
         "fileInput"     : "#cv_file",
-        "saveCvButton"  : "#modify_form .save-btn"
+        "saveCvButton"  : "#upload-new-cv"
     },
     "totaljobs.com" : {
         "url"          : "https://www.totaljobs.com",
@@ -34,6 +37,7 @@
         "loginButton"        : "#login-button",
         "cv"                 : "/candidate/docupload.phtml?type=CV",
         "fileInput"          : "#CVUpload",
+        "indexButton"        : "input[name='IsIndexable']",
         "saveCvButton"       : ".actionbuttons input[type='image']",
         "manage cvs"         : "/candidate/managedocs.phtml",
         "moreOptionsButton"  : ".docsmoreopt:not(.docsmoreoptdef)",
