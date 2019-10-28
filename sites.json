@@ -92,6 +92,7 @@
         "removeCVLink"            : "#manageResumesContainer .delete-link",
         "confirmDeleteButton"     : "#btn-modal-delete",
         "cv"                      : "/cv/Resume/CreateResume",
+        "uploadButton"            : "#btnUploadFromMyComputer",
         "fileInput"               : "#fuUploadFromMyComputer",
         "uploadSuccessPage"       : ".form-container-resume-settings-page",
         "makeSearchable" : "#IsSearchable"
