@@ -64,7 +64,9 @@ module.exports = function () {
 
         this.waitFor(selector);
 
-        return this.driver.findElement({ css: selector}).sendKeys(user[data]);
+        return this.driver
+            .findElement({ css: selector})
+            .sendKeys(user[data]);
     });
 
 
@@ -83,7 +85,9 @@ module.exports = function () {
 
         this.waitFor(selector);
 
-        return this.driver.findElement({ css: selector}).click();
+        return this.driver
+            .findElement({ css: selector})
+            .click();
     });
 
 
@@ -214,9 +218,11 @@ module.exports = function () {
 
         this.waitFor(selector);
 
-        return this.driver.findElements({ css: selector}).then(function (elems) {
-              return expect(elems.length).to.equal(1);
-        });
+        return this.driver
+            .findElements({ css: selector})
+            .then(function (elems) {
+                return expect(elems.length).to.equal(1);
+            });
     });
 
 
@@ -245,9 +251,12 @@ module.exports = function () {
 
         this.waitFor(selector);
 
-        return this.driver.findElement({ css: selector}).getText().then(function (message) {
-            expect(message).to.equal(message);
-        });
+        return this.driver
+            .findElement({ css: selector})
+            .getText()
+            .then(function (message) {
+                expect(message).to.equal(message);
+            });
     });
 
     this.Then(/^I hover on "([^"]+)"$/, function (selector){
@@ -260,15 +269,20 @@ module.exports = function () {
                 break;
         }
 
-        return this.driver.findElement({ css: selector}).then(function(elem){
-            driver.actions().mouseMove(elem).perform();
-        });
+        return this.driver
+            .findElement({ css: selector})
+            .then(function(elem){
+                driver
+                    .actions()
+                    .mouseMove(elem)
+                    .perform();
+            });
     });
 
 
 
     this.Then(/^I click the "([^"]+)" button if it is visible$/, function (buttonSelector) {
-        var button = this.driver.findElement({ css: site.buttonSelector});
+        var button = this.driver.findElement({ css: site[buttonSelector]});
 
         // If the button isn't visible, skip step
         if(button.length === 0) {
@@ -296,12 +310,17 @@ module.exports = function () {
 
             allHandles.forEach(function (handle) {
                 if (handle !== originalHandle) {
-                    driver.switchTo().window(handle);
+                    driver
+                        .switchTo()
+                        .window(handle);
+
                     driver.close();
                 }
             });
 
-            driver.switchTo().window(originalHandle);
+            driver
+                .switchTo()
+                .window(originalHandle);
         });
     });
 
@@ -309,13 +328,20 @@ module.exports = function () {
         var driver = this.driver,
             currentHandle = driver.getWindowHandle();
 
-        driver.getAllWindowHandles().then(function (allHandles) {
+        driver
+            .getAllWindowHandles()
+                .then(function (allHandles) {
 
-            driver.switchTo().window(allHandles[1]);
-            driver.close();
+                driver
+                    .switchTo()
+                    .window(allHandles[1]);
 
-            return driver.switchTo().window(allHandles[0]);
-        });
+                driver.close();
+
+                return driver
+                    .switchTo()
+                    .window(allHandles[0]);
+            });
     });
 
 };
