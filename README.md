@@ -61,13 +61,13 @@ Each additional site should be in its own feature branch.
 ### Currently Supported sites
 
 * https://cv-library.co.uk
+* https://cwjobs.co.uk
 * https://monster.co.uk
 * https://technojobs.co.uk
 * https://totaljobs.com
 
 ### Retired sites
 
-* https://cwjobs.co.uk - blocking automated browsers
 * https://jobserve.com - out of date
 * https://jobsite.co.uk - Swallowed up by totaljobs.com
 
