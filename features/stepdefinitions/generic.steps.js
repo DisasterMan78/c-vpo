@@ -51,7 +51,8 @@ module.exports = function () {
 
     this.Then(/^I should be able to enter my "([^"]+)"$/, function (data) {
 
-        var selector;
+        var selector,
+            element;
 
         switch (data) {
             case 'username' :
@@ -64,9 +65,11 @@ module.exports = function () {
 
         this.waitFor(selector);
 
-        return this.driver
-            .findElement({ css: selector})
-            .sendKeys(user[data]);
+        element = this.driver.findElement({ css: selector});
+
+        element.click();
+
+        return element.sendKeys(user[data]);
     });
 
 
