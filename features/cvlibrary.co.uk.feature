@@ -14,3 +14,5 @@ Feature: cv-library.co.uk CV upload
         Then I click the "device" button
         Then I should be able to add my CV
             And I should be able to submit the "cv" form
+            And I wait for the "upload success" page to load
+            And the page should say "success"
