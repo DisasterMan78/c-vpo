@@ -14,13 +14,14 @@
         "deviceButton"      : "#filepicker-device",
         "fileInput"         : "#cv_file",
         "saveCvButton"      : "#upload-new-cv",
-        "uploadSuccessPage" : ".site-success-920 .cvlp-bold0",
-        "successMsg"        : "Your profile has been successfully updated"
+        "uploadSuccessPage" : "#cvUpdatedFreeReviewTitle",
+        "successMsg"        : "Your CV has been updated"
     },
     "totaljobs.com" : {
         "url"          : "https://www.totaljobs.com",
         "lastpass"     : false,
         "login"        : "/account/signin?ReturnUrl=%2fAuthenticated%2fprofile.aspx#cv",
+        "allowCookies" : "#ccmgt_explicit_accept",
         "loginForm"    : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx']",
         "userInput"    : "input[name='Form.Email']",
         "passInput"    : "input[name='Form.Password']",
@@ -72,6 +73,7 @@
         "url"          : "https://www.cwjobs.co.uk",
         "lastpass"     : false,
         "login"        : "/account/signin?ReturnUrl=%2fAuthenticated%2fprofile.aspx#cv",
+        "allowCookies" : "#ccmgt_explicit_accept",
         "loginForm"    : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx']",
         "userInput"    : "input[name='Form.Email']",
         "passInput"    : "input[name='Form.Password']",
@@ -83,20 +85,18 @@
     "monster.co.uk" : {
         "url"                     : "https://www.monster.co.uk",
         "lastpass"                : false,
-        "loginUrl"                : "https://login20.monster.co.uk/Login/SignIn",
-        "loginForm"               : "#SignInform",
-        "userInput"               : "#EmailAddress",
-        "passInput"               : "#Password",
-        "loginButton"             : "#btn-login",
-        "manage cvs"              : "/cv/Resume/ManageResumes",
-        "cvDate"                  : ".resume-info",
-        "maxCvsElement"           : "#manageResumesContainer tfoot p",
-        "removeCVLink"            : "#manageResumesContainer .delete-link",
-        "confirmDeleteButton"     : "#btn-modal-delete",
-        "cv"                      : "/cv/Resume/CreateResume",
-        "uploadButton"            : "#btnUploadFromMyComputer",
-        "fileInput"               : "#fuUploadFromMyComputer",
-        "uploadSuccessPage"       : ".form-container-resume-settings-page",
-        "makeSearchable" : "#IsSearchable"
+        "loginUrl"                : "https://identity.monster.com/login?state=hKFo2SBDR2lTUkY4VmdsWlE1SnNDN3M1SkdUTXNvNlNJSnloX6FupWxvZ2luo3RpZNkgaXpna3B1RXloazNXaGY3bUs3MFZkYk00dkZEZ0ZodHOjY2lk2SB4ZjVUaTJsV2FiZDVsNk5lYnllNVNwb1dnMnJrSzdGTA",
+        "signinMessage"           : "Select your preferred sign-in method.",
+        "loginTab"                :  "#login-tab",
+        "loginForm"               : "#email-button",
+        "userInput"               : "#email",
+        "passInput"               : "#password",
+        "loginButton"             : "#email-button",
+        "profile"                 : "/profile/detail",
+        "uploadButton"            : "#resume-document-section-edit",
+        "fileInput"               : "input[aria-labelledby=file-drop-zone-label]",
+        "uploadSuccessMessage"    : "Uploaded!",
+        "saveChanges"             : "[data-testid=resume-document-submit-button]",
+        "uploadedDocument"        : "Uploaded Document"
     }
 }

@@ -27,16 +27,15 @@ module.exports = function () {
     });
 
 
-    this.Given(/^I visit the "([^"]+)" url$/, function (url) {
+    this.Given(/^I visit the "([^"]+)" url$/, function (urlKey) {
+        var url;
 
-        var urlKey;
-
-        switch (url) {
+        switch (urlKey) {
             case 'login' :
                 url = site.loginUrl;
                 break;
         }
-
+    console.log('url', url)
         return this.driver.get(url);
     });
 
@@ -152,6 +151,9 @@ module.exports = function () {
             case 'add to index' :
                 selector = site.indexButton;
                 break;
+            case 'login tab' :
+                selector = site.loginTab;
+                break;
         }
 
         var element = this.driver.findElement({ css: selector});
@@ -160,6 +162,27 @@ module.exports = function () {
         // As we don't care about UI testing (we are automating, not really testing), we will call a programmatic click
         // instead of a simulatted user action. IT feels wtong, but it works.
         return this.driver.executeScript('arguments[0].click()', element);
+    });
+
+    this.Then(/^I wait for the "([^"]+)" message$/, function(page){
+
+        var text,
+            driver = this.driver;
+
+        switch (page) {
+            case "sign in" :
+                text = site.signinMessage;
+            case 'upload success' :
+                text = site.uploadSuccessMessage;
+                break;
+            case 'uploaded document' :
+                text = site.uploadedDocument;
+                break;
+        }
+
+        return driver.wait(function() {
+            return driver.getPageSource().contains(text);
+        }, 20000);
     });
 
 
@@ -230,10 +253,7 @@ module.exports = function () {
 
 
     this.Then(/^wait for "([^"]+)" seconds$/, function(seconds){
-
-        var milliseconds = seconds * 1000;
-
-        return this.driver.delay(milliseconds);
+        return this.driver.sleep(seconds * 1000);
     });
 
 
