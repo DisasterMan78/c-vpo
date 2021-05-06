@@ -35,7 +35,7 @@ module.exports = function () {
                     matchResults                    = text.match(/You have saved (\d+) of (\d+) possible CVs/);
                     webdriver.cvCounts.currentCount = matchResults[1];
                     webdriver.cvCounts.maxCount     = matchResults[2];
-                    // We aren't really testing the values here, just checking they are stored them and moving on.
+                    // We aren't really testing the values here, just checking they are stored and moving on.
                     expect(webdriver.cvCounts.currentCount).to.be.lessThan(webdriver.cvCounts.maxCount + 1);
                 }
 

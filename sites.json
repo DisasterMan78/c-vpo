@@ -81,22 +81,5 @@
         "cv"           : "/Authenticated/profile.aspx",
         "fileInput"    : "#candidateProfileDetails_cvUpload_filCVUploadFile",
         "saveCvButton" : "#btnSave"
-    },
-    "monster.co.uk" : {
-        "url"                     : "https://www.monster.co.uk",
-        "lastpass"                : false,
-        "loginUrl"                : "https://identity.monster.com/login?state=hKFo2SBDR2lTUkY4VmdsWlE1SnNDN3M1SkdUTXNvNlNJSnloX6FupWxvZ2luo3RpZNkgaXpna3B1RXloazNXaGY3bUs3MFZkYk00dkZEZ0ZodHOjY2lk2SB4ZjVUaTJsV2FiZDVsNk5lYnllNVNwb1dnMnJrSzdGTA",
-        "signinMessage"           : "Select your preferred sign-in method.",
-        "loginTab"                :  "#login-tab",
-        "loginForm"               : "#email-button",
-        "userInput"               : "#email",
-        "passInput"               : "#password",
-        "loginButton"             : "#email-button",
-        "profile"                 : "/profile/detail",
-        "uploadButton"            : "#resume-document-section-edit",
-        "fileInput"               : "input[aria-labelledby=file-drop-zone-label]",
-        "uploadSuccessMessage"    : "Uploaded!",
-        "saveChanges"             : "[data-testid=resume-document-submit-button]",
-        "uploadedDocument"        : "Uploaded Document"
     }
 }

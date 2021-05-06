@@ -221,6 +221,9 @@ module.exports = function () {
             case 'upload success' :
                 selector = site.uploadSuccessPage;
                 break;
+            case 'homepage' :
+                selector = site.homepage;
+                break;
             case 'nonexistent' :
                 selector = "#nonexistent";
                 break;
