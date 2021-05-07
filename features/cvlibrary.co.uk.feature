@@ -3,6 +3,7 @@ Feature: cv-library.co.uk CV upload
     Scenario: Load site and login
         Given I am using the data for "cvlibrary.co.uk"
             And I visit the "login" page
+            And I click the "allow cookies" button in an iframe
         Then the page should have a login form
             And I should be able to enter my "username"
             And I should be able to enter my "password"

@@ -320,6 +320,26 @@ module.exports = function () {
 
 
 
+    this.Then(/^I click the "([^"]+)" button in an iframe$/, function (button) {
+        let driver = this.driver,
+            buttonSelector,
+            iframeName;
+        switch (button) {
+            case "allow cookies":
+                buttonSelector = site['allowCookies'];
+                iframeName = site['allowCookiesIframe'];
+                break;
+        }
+        driver.switchTo().frame(iframeName);
+        // Frame switching is, for some reason, slow!
+        this.driver.sleep(500);
+        driver.findElement({ css: buttonSelector}).click();
+
+        return driver.switchTo().defaultContent();
+    });
+
+
+
     this.Then(/^I click the "([^"]+)" button if it is visible and close any other tabs that open$/, function (buttonSelector) {
         var driver = this.driver,
             originalHandle = driver.getWindowHandle(),
