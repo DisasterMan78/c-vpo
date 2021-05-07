@@ -181,7 +181,11 @@ module.exports = function () {
         }
 
         return driver.wait(function() {
-            return driver.getPageSource().contains(text);
+            return driver
+                .getPageSource()
+                .then(function (source) {
+                    return expect(source).contains(text);
+                });
         }, 20000);
     });
 
