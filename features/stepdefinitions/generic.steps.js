@@ -35,23 +35,23 @@ module.exports = function () {
                 url = site.loginUrl;
                 break;
         }
-    console.log('url', url)
+
         return this.driver.get(url);
     });
 
 
     this.Then(/^the page should have a login form$/, function () {
+        var loginFormSelector = site.loginForm;
 
-        this.waitFor(site.loginForm);
+        this.waitFor(loginFormSelector);
 
-        return this.driver.findElement({ css: site.loginForm});
+        return this.driver.findElement({ css: loginFormSelector});
     });
 
 
     this.Then(/^I should be able to enter my "([^"]+)"$/, function (data) {
 
-        var selector,
-            element;
+        var selector;
 
         switch (data) {
             case 'username' :
@@ -62,13 +62,9 @@ module.exports = function () {
                 break;
         }
 
-        this.waitFor(selector);
-
-        element = this.driver.findElement({ css: selector});
-
-        element.click();
-
-        return element.sendKeys(user[data]);
+        return this.driver
+            .findElement({ css: selector})
+            .sendKeys(user[data]);
     });
 
 
@@ -84,8 +80,6 @@ module.exports = function () {
                 selector = site.saveCvButton;
                 break;
         }
-
-        this.waitFor(selector);
 
         return this.driver
             .findElement({ css: selector})
@@ -158,11 +152,12 @@ module.exports = function () {
 
         var element = this.driver.findElement({ css: selector});
 
-        // Thanks to technojons.co.uk with their hidden/animated links, a simulated click is bloody hard to acheive.
+        // Thanks to technojobs.co.uk with their hidden/animated links, a simulated click is bloody hard to acheive.
         // As we don't care about UI testing (we are automating, not really testing), we will call a programmatic click
-        // instead of a simulatted user action. IT feels wtong, but it works.
+        // instead of a simulated user action. It feels wtong, but it works.
         return this.driver.executeScript('arguments[0].click()', element);
     });
+
 
     this.Then(/^I wait for the "([^"]+)" message$/, function(page){
 
@@ -233,9 +228,7 @@ module.exports = function () {
                 break;
         }
 
-        this.waitFor(selector);
-
-        return this.driver.findElement({ css: selector});
+        return this.waitFor(selector);
     });
 
 
@@ -248,8 +241,6 @@ module.exports = function () {
                 selector = site.cvShowMoreButton;
                 break;
         }
-
-        this.waitFor(selector);
 
         return this.driver
             .findElements({ css: selector})
@@ -266,28 +257,23 @@ module.exports = function () {
 
     this.Then(/^the page should say "([^"]+)"$/, function (text) {
         var selector,
-            message;
+            expectedMessage;
 
         switch (text) {
             case 'are you sure' :
                 selector = site.removeCVPage;
-                message  = site.confirmDeleteMsg;
-                break;
-            case 'success' :
-                selector = site.uploadSuccessPage;
-                message  = site.successMsg;
+                expectedMessage  = site.confirmDeleteMsg;
                 break;
         }
-
-        this.waitFor(selector);
 
         return this.driver
             .findElement({ css: selector})
             .getText()
-            .then(function (message) {
-                expect(message).to.equal(message);
+            .then(function (foundMessage) {
+                expect(foundMessage).to.equal(expectedMessage);
             });
     });
+
 
     this.Then(/^I hover on "([^"]+)"$/, function (selector){
         var driver = this.driver,
@@ -328,55 +314,29 @@ module.exports = function () {
         let driver = this.driver,
             buttonSelector,
             iframeName;
+
         switch (button) {
             case "allow cookies":
                 buttonSelector = site['allowCookies'];
                 iframeName = site['allowCookiesIframe'];
                 break;
         }
+
         driver.switchTo().frame(iframeName);
         // Frame switching is, for some reason, slow!
-        this.driver.sleep(500);
-        driver.findElement({ css: buttonSelector}).click();
+        driver.sleep(500);
+        driver
+            .findElement({ css: buttonSelector})
+            .click();
 
-        return driver.switchTo().defaultContent();
+        return driver
+            .switchTo()
+            .defaultContent();
     });
 
-
-
-    this.Then(/^I click the "([^"]+)" button if it is visible and close any other tabs that open$/, function (buttonSelector) {
-        var driver = this.driver,
-            originalHandle = driver.getWindowHandle(),
-            button = this.driver.findElement({ css: site[buttonSelector]});
-
-        // If the button isn't visible, skip step
-        if(button.length === 0) {
-            return true;
-        }
-
-        button.click();
-
-        driver.getAllWindowHandles().then(function (allHandles) {
-
-            allHandles.forEach(function (handle) {
-                if (handle !== originalHandle) {
-                    driver
-                        .switchTo()
-                        .window(handle);
-
-                    driver.close();
-                }
-            });
-
-            driver
-                .switchTo()
-                .window(originalHandle);
-        });
-    });
 
     this.Then(/^close the other tab that has opened$/, function() {
-        var driver = this.driver,
-            currentHandle = driver.getWindowHandle();
+        var driver = this.driver;
 
         driver
             .getAllWindowHandles()
