@@ -17,3 +17,4 @@ Feature: cv-library.co.uk CV upload
         Then I should be able to add my CV
             And I should be able to submit the "cv" form
             And I wait for the "upload success" message
+        Then I click the optional "make this cv searchable" button

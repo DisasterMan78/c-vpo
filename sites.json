@@ -17,7 +17,8 @@
         "fileInput"             : "#cv_file",
         "saveCvButton"          : "#upload-new-cv",
         "uploadSuccessPage"     : "#cvUpdatedFreeReviewTitle",
-        "successMsg"            : "Your CV has been updated"
+        "successMsg"            : "Your CV has been updated",
+        "makeSearchable"        : "button[data-action='unhide-profile']"
     },
     "totaljobs.com" : {
         "url"          : "https://www.totaljobs.com",
@@ -30,6 +31,7 @@
         "loginButton"  : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
         "cv"           : "/Authenticated/profile.aspx",
         "fileInput"    : "#candidateProfileDetails_cvUpload_filCVUploadFile",
+        "makeSearchable": "#candidateProfileDetails_rdoSearchable",
         "saveCvButton" : "#btnSave"
     },
     "technojobs.co.uk" : {
@@ -72,16 +74,17 @@
         "saveCvButton"          : "#btnUpload"
     },
     "cwjobs.co.uk" : {
-        "url"          : "https://www.cwjobs.co.uk",
-        "lastpass"     : false,
-        "login"        : "/account/signin?ReturnUrl=%2fAuthenticated%2fprofile.aspx#cv",
-        "allowCookies" : "#ccmgt_explicit_accept",
-        "loginForm"    : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx']",
-        "userInput"    : "input[name='Form.Email']",
-        "passInput"    : "input[name='Form.Password']",
-        "loginButton"  : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
-        "cv"           : "/Authenticated/profile.aspx",
-        "fileInput"    : "#candidateProfileDetails_cvUpload_filCVUploadFile",
-        "saveCvButton" : "#btnSave"
+        "url"           : "https://www.cwjobs.co.uk",
+        "lastpass"      : false,
+        "login"         : "/account/signin?ReturnUrl=%2fAuthenticated%2fprofile.aspx#cv",
+        "allowCookies"  : "#ccmgt_explicit_accept",
+        "loginForm"     : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx']",
+        "userInput"     : "input[name='Form.Email']",
+        "passInput"     : "input[name='Form.Password']",
+        "loginButton"   : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
+        "cv"            : "/Authenticated/profile.aspx",
+        "fileInput"     : "#candidateProfileDetails_cvUpload_filCVUploadFile",
+        "makeSearchable": "#candidateProfileDetails_rdoSearchable",
+        "saveCvButton"  : "#btnSave"
     }
 }

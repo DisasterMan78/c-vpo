@@ -99,63 +99,26 @@ module.exports = function () {
 
     this.Then(/^I click the "([^"]+)" button$/, function (buttonType) {
 
-        var selector,
-            element;
+        const driver = this.driver;
+        const selector = getButtonTypeSelector(buttonType, site);
+        const element = driver.findElement({ css: selector});
 
-        switch (buttonType) {
-            case 'allow cookies' :
-                selector = site.allowCookies;
-                break;
-            case 'CVs tab' :
-                selector = site.tabCvs;
-                break;
-            case 'edit cv' :
-                selector = site.editCvButton;
-                break;
-            case 'upload cv' :
-                selector = site.uploadCvButton;
-                break;
-            case 'remove' :
-                selector = site.removeCvLink;
-                break;
-            case 'remove document' :
-                selector = site.removeCvButton;
-                break;
-            case 'confirm delete' :
-                selector = site.confirmDeleteButton;
-                break;
-            case 'more options' :
-                selector = site.moreOptionsButton;
-                break;
-            case 'confirm delete' :
-                selector = site.confirmDeleteButton;
-                break;
-            case 'make this cv searchable' :
-                selector = site.makeSearchable;
-                break;
-            case 'upload' :
-                selector = site.uploadButton;
-                break;
-            case 'cookies' :
-                selector = site.cookiesButton;
-                break;
-            case 'device' :
-                selector = site.deviceButton;
-                break;
-            case 'add to index' :
-                selector = site.indexButton;
-                break;
-            case 'login tab' :
-                selector = site.loginTab;
-                break;
+        return programaticClick(element, driver);
+    });
+
+
+    this.Then(/^I click the optional "([^"]+)" button$/, async function (buttonType) {
+
+        const driver = this.driver;
+        const selector = getButtonTypeSelector(buttonType, site);
+        const elements = driver.findElements({ css: selector});
+
+        if (elements.length) {
+            return programaticClick(elements[0], driver);
+        } else {
+            console.log(`Selector '${selector}' for button type ${buttonType} not found`);
+            return true;
         }
-
-        var element = this.driver.findElement({ css: selector});
-
-        // Thanks to technojobs.co.uk with their hidden/animated links, a simulated click is bloody hard to acheive.
-        // As we don't care about UI testing (we are automating, not really testing), we will call a programmatic click
-        // instead of a simulated user action. It feels wtong, but it works.
-        return this.driver.executeScript('arguments[0].click()', element);
     });
 
 
@@ -355,3 +318,45 @@ module.exports = function () {
     });
 
 };
+
+const getButtonTypeSelector = (buttonType, site) => {
+    switch (buttonType) {
+        case 'allow cookies' :
+            return site.allowCookies;
+        case 'CVs tab' :
+            return site.tabCvs;
+        case 'edit cv' :
+            return site.editCvButton;
+        case 'upload cv' :
+            return site.uploadCvButton;
+        case 'remove' :
+            return site.removeCvLink;
+        case 'remove document' :
+            return site.removeCvButton;
+        case 'confirm delete' :
+            return site.confirmDeleteButton;
+        case 'more options' :
+            return site.moreOptionsButton;
+        case 'confirm delete' :
+            return site.confirmDeleteButton;
+        case 'make this cv searchable' :
+            return site.makeSearchable;
+        case 'upload' :
+            return site.uploadButton;
+        case 'cookies' :
+            return site.cookiesButton;
+        case 'device' :
+            return site.deviceButton;
+        case 'add to index' :
+            return site.indexButton;
+        case 'login tab' :
+            return site.loginTab;
+    }
+}
+
+const programaticClick = (element, driver) => {
+    // Thanks to technojobs.co.uk with their hidden/animated links, a simulated click is bloody hard to acheive.
+    // As we don't care about UI testing (we are automating, not really testing), we will call a programmatic click
+    // instead of a simulated user action. It feels wtong, but it works.
+    return driver.executeScript('arguments[0].click()', element);
+}
