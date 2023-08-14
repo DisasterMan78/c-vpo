@@ -43,14 +43,16 @@
         "passInput"          : "#password",
         "loginButton"        : "#login-button",
         "cv"                 : "/candidate/docupload.phtml?type=CV",
+        "uploadForm"         : "form[action='/candidate/docupload.phtml']",
         "fileInput"          : "#CVUpload",
         "indexButton"        : "input[name='IsIndexable']",
-        "saveCvButton"       : ".actionbuttons input[type='image']",
+        "saveCvButton"       : "button[type='submit']",
         "manage cvs"         : "/candidate/managedocs.phtml",
+        "replaceFileButton"  : "a[href^='/candidate/docupload.phtml?id=']",
         "moreOptionsButton"  : ".docsmoreopt:not(.docsmoreoptdef)",
-        "removeCvLink"       : ".cv-butt-remove",
         "removeCvButton"     : "a[href^='/candidate/docremove.phtml?id=']",
-        "cvShowMoreButton"   : ".jobbox.cv-letters"
+        "confirmRemoveButton": "a[href$='&confirm=true']",
+        "uploadAnotherButton": "#another-cv"
     },
     "jobserve.com" : {
         "url"                   : "https://www.jobserve.com",

@@ -27,25 +27,18 @@ module.exports = function () {
     });
 
 
-    this.Given(/^I visit the "([^"]+)" url$/, function (urlKey) {
-        var url;
-
-        switch (urlKey) {
-            case 'login' :
-                url = site.loginUrl;
+    this.Then(/^the page should have a "([^"]+)" form$/, async function (formType) {
+        var formSelector;
+        switch (formType) {
+            case "login":
+                formSelector = site.loginForm;
+                break;
+            case "upload":
+                formSelector = site.uploadForm;
                 break;
         }
 
-        return this.driver.get(url);
-    });
-
-
-    this.Then(/^the page should have a login form$/, function () {
-        var loginFormSelector = site.loginForm;
-
-        this.waitFor(loginFormSelector);
-
-        return this.driver.findElement({ css: loginFormSelector});
+        return this.waitFor(formSelector);
     });
 
 
@@ -87,6 +80,23 @@ module.exports = function () {
     });
 
 
+
+
+    this.Then(/^I should be able to programatically submit the "([^"]+)" form$/, async function (formType) {
+        var formSelector;
+        switch (formType) {
+            case "login":
+                formSelector = site.loginForm;
+                break;
+            case "upload":
+                formSelector = site.uploadForm;
+                break;
+        }
+
+        return await this.driver.findElement({ css: formSelector}).submit();
+    });
+
+
     this.Then(/^I should be able to add my CV$/, function () {
 
         this.waitFor(site.fileInput);
@@ -101,7 +111,7 @@ module.exports = function () {
 
         const driver = this.driver;
         const selector = getButtonTypeSelector(buttonType, site);
-        const element = driver.findElement({ css: selector});
+        const element = driver.findElement({ css: selector });
 
         return programaticClick(element, driver);
     });
@@ -167,7 +177,7 @@ module.exports = function () {
                 selector = site.cvTabContent;
                 break;
             case 'remove document' :
-                selector = site.removeCvButton;
+                selector = site.confirmRemoveButton;
                 break;
             case 'cv' :
                 selector = site.editCvButton;
@@ -177,8 +187,9 @@ module.exports = function () {
             case 'confirm delete' :
                 selector = site.removeCVPage;
                 break;
-            case 'my cvs & letters' :
-                selector = site.cvShowMoreButton;
+            // REMOVE?
+            case 'manage CVs' :
+                selector = site.uploadAnotherButton;
                 break;
             case 'upload success' :
                 selector = site.uploadSuccessPage;
@@ -329,16 +340,16 @@ const getButtonTypeSelector = (buttonType, site) => {
             return site.editCvButton;
         case 'upload cv' :
             return site.uploadCvButton;
-        case 'remove' :
-            return site.removeCvLink;
+        case "save cv":
+            return site.saveCvButton;
         case 'remove document' :
             return site.removeCvButton;
+        case 'confirm remove' :
+            return site.confirmRemoveButton
         case 'confirm delete' :
             return site.confirmDeleteButton;
         case 'more options' :
             return site.moreOptionsButton;
-        case 'confirm delete' :
-            return site.confirmDeleteButton;
         case 'make this cv searchable' :
             return site.makeSearchable;
         case 'upload' :
@@ -347,7 +358,7 @@ const getButtonTypeSelector = (buttonType, site) => {
             return site.cookiesButton;
         case 'device' :
             return site.deviceButton;
-        case 'add to index' :
+        case 'opt-out' :
             return site.indexButton;
         case 'login tab' :
             return site.loginTab;
