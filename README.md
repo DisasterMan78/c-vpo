@@ -15,7 +15,7 @@ Node.js
 
 NPM
 
-Install Chromedriver from http://chromedriver.storage.googleapis.com/index.html
+Install Chromedriver from https://googlechromelabs.github.io/chrome-for-testing/
 Be sure to add path to chromedriver file to your PATH variable. Instruction on doing this for your operating system can be found online.
 
 > Be sure to keep Chromedriver up to date with your Chrome version
