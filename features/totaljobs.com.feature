@@ -4,7 +4,7 @@ Feature: totaljobs.com CV upload
         Given I am using the data for "totaljobs.com"
             And I visit the "login" page
             And I click the "allow cookies" button
-        Then the page should have a login form
+        Then the page should have a "login" form
             And I should be able to enter my "username"
             And I should be able to enter my "password"
             And I should be able to submit the "login" form

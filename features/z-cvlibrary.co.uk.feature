@@ -5,7 +5,7 @@ Feature: cv-library.co.uk CV upload
             And I visit the "login" page
             And wait for "0.5" seconds
             And I click the "allow cookies" button in an iframe
-        Then the page should have a login form
+        Then the page should have a "login" form
             And I should be able to enter my "username"
             And I should be able to enter my "password"
             And I should be able to submit the "login" form
