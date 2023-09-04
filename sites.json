@@ -16,18 +16,17 @@
         "successMsg"            : "Your CV has been updated"
     },
     "totaljobs.com" : {
-        "url"          : "https://www.totaljobs.com",
-        "lastpass"     : false,
-        "login"        : "/account/signin?ReturnUrl=%2fAuthenticated%2fprofile.aspx#cv",
-        "allowCookies" : "#ccmgt_explicit_accept",
-        "loginForm"    : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx']",
-        "userInput"    : "input[name='Form.Email']",
-        "passInput"    : "input[name='Form.Password']",
-        "loginButton"  : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
-        "cv"           : "/Authenticated/profile.aspx",
-        "fileInput"    : "#candidateProfileDetails_cvUpload_filCVUploadFile",
-        "makeSearchable": "#candidateProfileDetails_rdoSearchable",
-        "saveCvButton" : "#btnSave"
+        "url"           : "https://www.totaljobs.com",
+        "lastpass"      : false,
+        "login"         : "/account/signin?ReturnUrl=%2fAuthenticated%2fprofile.aspx#cv",
+        "allowCookies"  : "#ccmgt_explicit_accept",
+        "loginForm"     : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx']",
+        "userInput"     : "input[name='Form.Email']",
+        "passInput"     : "input[name='Form.Password']",
+        "loginButton"   : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
+        "tabCvs"        : "button[aria-controls='cvTab']",
+        "fileInput"     : "[data-at='attachments-upload-area-input']",
+        "successMsg"    : "Your document was uploaded successfully"
     },
     "technojobs.co.uk" : {
         "url"                : "https://www.technojobs.co.uk/",
@@ -79,9 +78,8 @@
         "userInput"     : "input[name='Form.Email']",
         "passInput"     : "input[name='Form.Password']",
         "loginButton"   : "form[action='/Account/SignIn?ReturnUrl=%2FAuthenticated%2Fprofile.aspx'] input[type='submit']",
-        "cv"            : "/Authenticated/profile.aspx",
-        "fileInput"     : "#candidateProfileDetails_cvUpload_filCVUploadFile",
-        "makeSearchable": "#candidateProfileDetails_rdoSearchable",
-        "saveCvButton"  : "#btnSave"
+        "tabCvs"        : "button[aria-controls='cvTab']",
+        "fileInput"     : "[data-at='attachments-upload-area-input']",
+        "successMsg"    : "Your document was uploaded successfully"
     }
 }

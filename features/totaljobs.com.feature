@@ -10,7 +10,7 @@ Feature: totaljobs.com CV upload
             And I should be able to submit the "login" form
 
     # Scenario: Upload CV
-        Given I visit the "cv" page
+        Given I click the "CVs tab" button
         Then I should be able to add my CV
-            And I click the "make this cv searchable" button
-        Then I should be able to submit the "cv" form
+            Then wait for "7.5" seconds
+            And I wait for the "upload success" message
