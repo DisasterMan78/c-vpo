@@ -13,6 +13,8 @@ Feature: technojobs.co.uk CV upload
         Then the page should have a "upload" form
             Then I should be able to add my CV
                 And I should be able to programatically submit the "upload" form
+                And I wait for the "upload success" message
+            Then I visit the "manageCvsPage" page
                 And I wait for the "manage CVs" page to load
             Then I click the "remove document" button
                 And I wait for the "remove document" page to load
